@@ -1,0 +1,16 @@
+def znajdz_min_max(nazwa_pliku):
+    with open(nazwa_pliku, 'r') as plik:
+        liczby = [float(line.strip()) for line in plik if line.strip()]
+    
+    if not liczby:
+        return None, None
+    
+    min_wartosc = max_wartosc = liczby[0]
+    
+    for liczba in liczby[1:]:
+        if liczba < min_wartosc:
+            min_wartosc = liczba
+        if liczba > max_wartosc:
+            max_wartosc = liczba
+    
+    return min_wartosc, max_wartosc
